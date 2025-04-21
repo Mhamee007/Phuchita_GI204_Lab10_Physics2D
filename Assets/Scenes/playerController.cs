@@ -6,7 +6,7 @@ public class playerController : MonoBehaviour
     float move;
     [SerializeField] float speed;
     [SerializeField] float jumpForce;
-    [SerializeField] bool IsJumpping;
+    [SerializeField] bool IsJumpping = false;
     
     void Start()
     {
