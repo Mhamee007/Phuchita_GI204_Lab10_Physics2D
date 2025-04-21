@@ -7,7 +7,7 @@ public class playerController : MonoBehaviour
     [SerializeField] float speed;
     [SerializeField] float jumpForce;
     [SerializeField] bool IsJumpping;
-
+    
     void Start()
     {
         r2d = GetComponent<Rigidbody2D>();
