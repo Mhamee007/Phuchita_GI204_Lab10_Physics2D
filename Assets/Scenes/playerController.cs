@@ -4,6 +4,8 @@ public class playerController : MonoBehaviour
 {
     Rigidbody2D r2d;
     float move;
+    Vector2 moveInput;
+
     [SerializeField] float speed;
     [SerializeField] float jumpForce;
     [SerializeField] bool IsJumpping = false;
@@ -15,12 +17,14 @@ public class playerController : MonoBehaviour
 
     void Update()
     {
-        move = Input.GetAxis("Horizontal");
-        r2d.velocity = new Vector2(move * speed, r2d.velocity.y);
+        moveInput = new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical"));
+        r2d.AddForce(moveInput * speed);
+
 
         if (Input.GetKeyDown(KeyCode.Space) && !IsJumpping)
         {
             r2d.AddForce(new Vector2(r2d.velocity.x, jumpForce));
+            
         }
     }
     void OnCollisionEnter2D(Collision2D other)
